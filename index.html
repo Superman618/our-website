@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Sweet Memory</title>
+    
+    <!-- 引入 Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=ZCOOL+XiaoWei&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    
+    <!-- 引入 CSS 框架和插件 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <!-- Viewer.js CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.3/viewer.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Our Sweet Memory</a>
+            <div class="love-days">在一起已经 <span id="days">0</span> 天</div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">首页</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#timeline">时间轴</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery">照片墙</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#message">留言板</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 轮播图部分 -->
+    <section id="home" class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="picture/1729565207499.jpg" alt="我们的照片" loading="lazy">
+                <div class="slide-caption">第一次见面 - 2024.08.12</div>
+            </div>
+            <div class="swiper-slide">
+                <img src="picture/1729565207479.jpg" alt="我们的照片" loading="lazy">
+                <div class="slide-caption">甜蜜时光</div>
+            </div>
+            <div class="swiper-slide">
+                <img src="picture/1729565207447.jpg" alt="我们的照片" loading="lazy">
+                <div class="slide-caption">浪漫瞬间</div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </section>
+
+    <!-- 时间轴部分 -->
+    <section id="timeline" class="container">
+        <h2 class="text-center my-5">我们的故事</h2>
+        <div class="timeline">
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-content">
+                    <h3>初次相遇</h3>
+                    <p>缘分让我们在这里相遇，开启了我们的故事...</p>
+                    <span class="date">2024-08-12</span>
+                </div>
+            </div>
+            
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-content">
+                    <h3>甜蜜时光</h3>
+                    <p>共度了我们的第一个夜晚...</p>
+                    <span class="date">2024-09-29</span>
+                </div>
+            </div>
+            
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-content">
+                    <h3>浪漫夜晚</h3>
+                    <p>我们人生当中的第一次爱爱❤️</p>
+                    <span class="date">2024-10-03</span>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-content">
+                    <h3>畅想未来</h3>
+                    <p>未来的我们...</p>
+                    <span class="date">2024-09-29</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 照片墙部分 -->
+    <section id="gallery" class="container">
+        <h2 class="text-center my-5">美好瞬间</h2>
+        <div class="masonry-grid">
+            <!-- 列将由 JavaScript 动态创建 -->
+        </div>
+        <div class="text-center mt-4">
+            <button id="loadMore" class="btn btn-outline-primary">加载更多照片</button>
+        </div>
+    </section>
+
+    <!-- 留言板部分 -->
+    <section id="message" class="container">
+        <h2 class="text-center my-5">爱的留言板</h2>
+        <div class="message-board">
+            <form id="messageForm">
+                <textarea class="form-control" placeholder="写下你想说的话..."></textarea>
+                <button type="submit" class="btn btn-primary mt-3">发送留言</button>
+            </form>
+            <div class="messages-container">
+                <!-- 留言内容将在这里显示 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 音乐播放器 -->
+    <div class="music-player">
+        <audio id="bgMusic" loop>
+            <source src="music/就想要和你在一起.m4a" type="audio/mp4">
+        </audio>
+        <button id="musicToggle" class="btn btn-sm">
+            <span class="visually-hidden">播放/暂停背景音乐</span>
+        </button>
+    </div>
+
+    <!-- 引入 JS 框架和插件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- Viewer.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.3/viewer.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
